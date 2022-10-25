@@ -13,4 +13,4 @@ def load_products(category_id=None):
         products = json.load(f)
     if category_id:
         products = [p for p in products if p["category_id"] == int(category_id)]
-        return products
+    return products
