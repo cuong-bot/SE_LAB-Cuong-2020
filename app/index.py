@@ -1,10 +1,12 @@
-from app import sale_app
+""" Routing and Start the application """
 from flask import render_template, request
-from app import dao
+from . import app
+from . import dao
 
 
-@sale_app.route('/')
+@app.route('/')
 def index():
+    """ Route index page (home) """
     cate = dao.load_categories()
     cate_id = request.args.get('category')
     proc = dao.load_products(category_id=cate_id if cate_id else 1)
@@ -12,4 +14,4 @@ def index():
 
 
 if __name__ == '__main__':
-    sale_app.run(debug=True)
+    app.run(debug=True)
